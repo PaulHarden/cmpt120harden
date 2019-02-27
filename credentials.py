@@ -5,8 +5,12 @@
 
 def makeName(first, last):
     uname = first[0] + "." + last[:7]
-    return uname
+    return uname.lower()
 
+def passCheck(passwd):
+    passwd = input("Create a new password: ")
+    
+    
 def main():
 
     # get user's first and last names
@@ -19,11 +23,11 @@ def main():
 
     # ask user to create a new password
     passwd = input("Create a new password: ")
-
+    
     # TODO modify this to ensure the password has at least 8 characters
     while len(passwd)<8:  
         print("I sense a disturbance in the force. Your password could be better...")
-        passwd = input("Create a new password: ")
+        ##passwd = input("Create a new password: ")
     print("The force is strong in this one...")
     print("Account configured.")
     print("Your new email address is:",uname,"@marist.edu")
