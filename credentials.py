@@ -12,17 +12,28 @@ def getName():
     return [first,last]
 
 def makeName(name):
-    return name[0] + "." + name[1]
+    return (name[0] + "." + name[1]).lower()
 
 # Function to check strength of password
 # Checks to see if password length is >8 characters
 # Needs to be validated by use of both upper and lower characters
-def passCheck():
+def getPass():
     passwd = input("Create a new password: ")
-    while len(passwd)<8:  
-        print("I sense a disturbance in the force. Your password should contain 8 or more characters.")
+    while not checkPass(passwd):
+        print("I sense a disturbance in the force. Your password should be a little stronger.")
         passwd = input("Create a new password: ")
+    print("The force is strong in this one...")
     return passwd
+
+def checkPass(passwd):
+    if len(passwd)<8:
+        return False
+    if passwd.lower() == passwd:
+        return False
+    if passwd.upper() == passwd:
+        return False
+    return True
+    
     
 def main():
 
@@ -33,10 +44,9 @@ def main():
     print("Your newly created username is:",f'"{uname}"')
 
     # ask user to create a new password
-    passwd = passCheck()
+    passwd = getPass()
     
     # TODO modify this to ensure the password has at least 8 characters
-    print("The force is strong in this one...")
     print("Account configured.")
     print("Your new email address is:",uname,"@marist.edu")
 
