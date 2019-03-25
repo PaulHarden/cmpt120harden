@@ -1,13 +1,13 @@
-def guessingGame():
+def main():
     animal = "snake"
     while True:
-        answer = input("This program is thinking of an animal... What is it?: ")
+        print("This program is thinking of an animal...")
+        answer = input("Can you guess what it is?: ")
         if answer == animal:
-            print("Congratulations! You guessed correctly!")
             break
+        else:
+            print("Your guess was incorrect, try again!")
+
+    print("Congratulations! You guessed correctly!")
         
-
-
-        
-
-guessingGame()
+main()
