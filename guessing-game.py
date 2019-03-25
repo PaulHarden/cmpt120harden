@@ -6,7 +6,7 @@ def main():
         if answer == animal:
             print("Congratulations! You guessed correctly!")
             break
-        elif answer == "quit":
+        elif answer[0] == "q":
             break
         else:
             print("Your guess was incorrect, try again!")
