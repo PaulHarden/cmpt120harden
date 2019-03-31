@@ -1,3 +1,4 @@
+# What about the GuessingImprovements branch in GitHub?
 def main():
     animal = "snake"
     while True:
