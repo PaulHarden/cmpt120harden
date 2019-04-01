@@ -11,18 +11,22 @@ def doLoop():
     while True:
         cmd = input("What computation do you want to perform? ").lower()
         if cmd == "add" or cmd =="mult" or cmd =="sub" or cmd == "div":
-            num1 = int(input("Enter the first number: "))
-            num2 = int(input("Enter the second number: "))
-            if cmd == "add":
-                result = num1 + num2
-            elif cmd == "sub":
-                result = num1 - num2
-            elif cmd == "mult":
-                result = num1 * num2
-            elif cmd == "div":
-                result = num1 // num2
-            print("The result is " + str(result) + ".\n")
-            break
+            try:
+                num1 = int(input("Enter the first number: "))
+                num2 = int(input("Enter the second number: "))
+                if cmd == "add":
+                    result = num1 + num2
+                elif cmd == "sub":
+                    result = num1 - num2
+                elif cmd == "mult":
+                    result = num1 * num2
+                elif cmd == "div":
+                    result = num1 // num2
+                print("The result is " + str(result) + ".\n")
+                break
+            except:
+                print("That is not a valid number...")
+                continue
         elif cmd == "quit":
             break
         else:
