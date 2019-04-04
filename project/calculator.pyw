@@ -9,14 +9,13 @@ def createCanvas():
    return win
 
 def createDisplay(win):
-### insert all this into point on display?
    # equation = input("Enter a mathematical equation (with spaces between characters): ").split()
    # result = doMath(equation)
    # print("The result is",result)
    
    disp = Rectangle(Point(20,10),Point(280,90))
    disp.setFill('White')
-   math = Text(Point(150,50),'Hey, can you read this?')
+   math = Text(Point(150,50),"Hey, can you read this?")
    disp.draw(win)
    math.draw(win)
    return
@@ -51,19 +50,21 @@ def createButtons(win):
       label = Text(Point(x+size[i]/2,y+size[i]/2),labels[i])
       button.draw(win)
       label.draw(win)
+   return coords
 
-def onClick(win, button): # initialize before other functions?
-   #while getMouse() in coords[i]:
-     #color[i].setFill('black')
-     #return
-   while True:
-      mouse = win.getMouse()
-      button.setFill('black')
-
+def onClick(coords, mouse):
+   equation = []
+   for i in range(len(coords)):
+      if coords [i][0] < mouse.x < coords[i][0] + 50 and coords[i][1] < mouse.y < coords[i][1] + 50:
+         if i == 0:
+            equation.append("7")
+         
 def main():
    win = createCanvas()
    display = createDisplay(win)
-   createButtons(win)
-   onClick(win, button) # initialize before other functions?
+   coords = createButtons(win)
+   while True:
+      mouse = win.getMouse()
+      onClick(coords, mouse)
 
 main()
