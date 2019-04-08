@@ -3,7 +3,7 @@
 def doMath(equation):
    i = 0
    while hasPrec(equation):
-      if equation[i] == "*" or equation[i] == "/":
+      if equation[i] == "x" or equation[i] == "/":
          process(equation, i)
       else:
          i = i + 1
@@ -18,13 +18,13 @@ def doMath(equation):
 
 def hasPrec(equation):
    eqstr = "".join(equation)
-   if "*" in eqstr or "/" in eqstr:
+   if "x" in eqstr or "/" in eqstr:
       return True
    return False
 
    
 def process(equation, i):
-   if equation[i] == "*":
+   if equation[i] == "x":
       result = float(equation[i - 1]) * float(equation[i + 1])
    elif equation[i] == "/":
       result = float(equation[i - 1]) / float(equation[i + 1])

@@ -18,7 +18,15 @@ def createDisplay(win):
    math = Text(Point(150,50),"Hey, can you read this?")
    disp.draw(win)
    math.draw(win)
-   return
+   return math
+
+def getLabel(i):
+   labels = ['7','8','9',
+             '4','5','6',
+             '1','2','3',
+             '.','0','DEL','=',
+             '/','x','+','-']
+   return labels[i]
 
 def createButtons(win):
    coords = [[20,100],[80,100],[140,100],
@@ -26,11 +34,6 @@ def createButtons(win):
              [20,220],[80,220],[140,220],
              [20,280],[80,280],[140,280],[200,280],
              [20,340],[80,340],[140,340],[200,340]]
-   labels = ['7','8','9',
-             '4','5','6',
-             '1','2','3',
-             '.','0','DEL','=',
-             '/','x','+','-']
    color = ['AliceBlue','AliceBlue','AliceBlue',
             'AliceBlue','AliceBlue','AliceBlue',
             'AliceBlue','AliceBlue','AliceBlue',
@@ -47,24 +50,35 @@ def createButtons(win):
       y = coords[i][1]
       button = Rectangle(Point(x,y),Point(x+size[i],y+size[i]))
       button.setFill(color[i])
-      label = Text(Point(x+size[i]/2,y+size[i]/2),labels[i])
+      label = Text(Point(x+size[i]/2,y+size[i]/2),getLabel(i))
       button.draw(win)
       label.draw(win)
    return coords
 
-def onClick(coords, mouse):
-   equation = []
+def onClick(coords, mouse, equation):
    for i in range(len(coords)):
       if coords [i][0] < mouse.x < coords[i][0] + 50 and coords[i][1] < mouse.y < coords[i][1] + 50:
-         if i == 0:
-            equation.append("7")
+         key = getLabel(i)
+         if key == "DEL":
+            equation = equation[:len(equation) - 1]
+         elif key == "=":
+            equation = str(doMath(equation.split()))
+         elif key in ['+','-','x','/']:
+            equation = equation + ' ' + key + ' '
+         else:
+            equation = equation + key
+         break
+   return equation
          
 def main():
    win = createCanvas()
    display = createDisplay(win)
    coords = createButtons(win)
+   equation = ''   
    while True:
       mouse = win.getMouse()
-      onClick(coords, mouse)
+      equation = onClick(coords, mouse, equation)
+      display.setText(equation)
+      print(equation)
 
 main()
