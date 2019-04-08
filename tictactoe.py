@@ -1,24 +1,26 @@
 symbol = [" ","X","O"]
 def printRow(row):
-    output = "|" #initialize output to the left border
-    for i in range(3): # for each square in the row
-        output = output + " " + symbol[row[i]] + " |" # add to output the symbol for this square followed by a border
-    print(output) # print the completed output for this row
+    output = "|"
+    for i in range(3):
+        output = output + " " + symbol[row[i]] + " |"
+    print(output)
 
 def printBoard(board):
-    print("+-----------+") # print the top border
+    print("+-----------+") 
     for i in range(3):
-        printRow(board[i]) # for each row in the board
-        print("+-----------+") # print the row, print the next border    
+        printRow(board[i]) 
+        print("+-----------+")   
     
 def markBoard(board, row, col, player):
-    if i in board == 0: # check to see whether the desired square is blank
-        column = # if so, set it to the player number
+    if board[row][col] == 0:
+        board[row][col] = player
+    else:
+        print("Please pick an empty square!")
 
 def getPlayerMove():
-    row = input(int("Pick a row (1-3): ")) # prompt user separately for the row and column numbers
-    column = input(int("Pick a column (1-3): "))
-    return (row - 1, column - 1) # then return that row and column instead of (0,0)
+    row = int(input("Pick a row (1-3): ")) 
+    col = int(input("Pick a column (1-3): "))
+    return (row - 1, col - 1) 
 
 def hasBlanks(board):
     # for each row in the board
