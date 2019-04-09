@@ -24,6 +24,12 @@ def getPlayerMove():
 
 def hasBlanks(board):
     # for each row in the board
+    for i in range(3):
+        for j in range(3):
+            if board[i][j] == 0:
+                return True
+            else:
+                break
     # for each square in the row
     # check whether the square is blank
     # if so, return True
@@ -32,12 +38,12 @@ def hasBlanks(board):
 def main():
     board = [[0,0,0],
              [0,0,0],
-             [0,0,0]] # TODO replace this with a 3x3 matrix of zero's
+             [0,0,0]]
     player = 1
     while hasBlanks(board):
         printBoard(board)
         row, col = getPlayerMove()
         markBoard(board, row, col, player)
-        player = player % 2 + 1 # switch player for next turn
+        player = player % 2 + 1
 
 main()
