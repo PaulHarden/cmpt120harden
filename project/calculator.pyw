@@ -4,7 +4,7 @@ from calc_function import *
 from graphics import *
 
 def createCanvas():
-   win = GraphWin('Calc You Later!', 300, 450,)
+   win = GraphWin('Calc You Later!', 300, 465)
    win.setBackground('SlateGray')
    return win
 
@@ -41,7 +41,7 @@ def createButtons(win):
             'AliceBlue','AliceBlue','AliceBlue',
             'Peachpuff','AliceBlue','Peachpuff','DarkSalmon',
             'Peachpuff','Peachpuff','Peachpuff','Peachpuff',
-            'Peachpuff','Peachpuff','Peachpuff','Peachpuff']
+            'Antique White','Antique White','Antique White','Antique White']
    size = [50,50,50,
            50,50,50,
            50,50,50,
