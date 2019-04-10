@@ -9,10 +9,6 @@ def createCanvas():
    return win
 
 def createDisplay(win):
-   # equation = input("Enter a mathematical equation (with spaces between characters): ").split()
-   # result = doMath(equation)
-   # print("The result is",result)
-   
    disp = Rectangle(Point(20,10),Point(280,90))
    disp.setFill('White')
    math = Text(Point(150,50),"Hey, can you read this?")
@@ -69,6 +65,14 @@ def onClick(coords, mouse, equation):
             equation = str(doMath(equation.split()))
          elif key in ['+','-','x','/']:
             equation = equation + ' ' + key + ' '
+         #elif key == "M+":
+          #  memory = equation
+         #elif key == "M-":
+          #  memory = memory - ' ' - key - ' '
+         #elif key == "MR":
+          #  equation = memory
+         #elif key == "MC":
+          #  memory = memory.remove(equation)
          else:
             equation = equation + key
          break
