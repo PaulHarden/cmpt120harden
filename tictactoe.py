@@ -28,12 +28,13 @@ def hasBlanks(board):
         for j in range(3):
             if board[i][j] == 0:
                 return True
-            else:
-                break
+        if board[i][j] == 0:
+            return True
+        
     # for each square in the row
     # check whether the square is blank
     # if so, return True
-    return True # if no square is blank, return False
+    # if no square is blank, return False
 
 def main():
     board = [[0,0,0],
