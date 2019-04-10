@@ -4,7 +4,7 @@ from calc_function import *
 from graphics import *
 
 def createCanvas():
-   win = GraphWin('Calc You Later!', 300, 410,)
+   win = GraphWin('Calc You Later!', 300, 465)
    win.setBackground('SlateGray')
    return win
 
@@ -25,7 +25,8 @@ def getLabel(i):
              '4','5','6',
              '1','2','3',
              '.','0','DEL','=',
-             '/','x','+','-']
+             '/','x','+','-',
+             'M+','M-','MR','MC']
    return labels[i]
 
 def createButtons(win):
@@ -33,15 +34,18 @@ def createButtons(win):
              [20,160],[80,160],[140,160],
              [20,220],[80,220],[140,220],
              [20,280],[80,280],[140,280],[200,280],
-             [20,340],[80,340],[140,340],[200,340]]
+             [20,340],[80,340],[140,340],[200,340],
+             [20,400],[80,400],[140,400],[200,400]]
    color = ['AliceBlue','AliceBlue','AliceBlue',
             'AliceBlue','AliceBlue','AliceBlue',
             'AliceBlue','AliceBlue','AliceBlue',
             'Peachpuff','AliceBlue','Peachpuff','DarkSalmon',
-            'Peachpuff','Peachpuff','Peachpuff','Peachpuff']
+            'Peachpuff','Peachpuff','Peachpuff','Peachpuff',
+            'Antique White','Antique White','Antique White','Antique White']
    size = [50,50,50,
            50,50,50,
            50,50,50,
+           50,50,50,50,
            50,50,50,50,
            50,50,50,50]
 
