@@ -59,20 +59,21 @@ def onClick(coords, mouse, equation):
    for i in range(len(coords)):
       if coords [i][0] < mouse.x < coords[i][0] + 50 and coords[i][1] < mouse.y < coords[i][1] + 50:
          key = getLabel(i)
+         memory = 0
          if key == "DEL":
             equation = equation[:len(equation) - 1]
          elif key == "=":
             equation = str(doMath(equation.split()))
          elif key in ['+','-','x','/']:
             equation = equation + ' ' + key + ' '
-         #elif key == "M+":
-          #  memory = equation
-         #elif key == "M-":
-          #  memory = memory - ' ' - key - ' '
-         #elif key == "MR":
-          #  equation = memory
-         #elif key == "MC":
-          #  memory = memory.remove(equation)
+         elif key == "M+":
+            memory = str(equation)
+         elif key == "M-":
+            memory = memory - ' ' - key - ' '
+         elif key == "MR":
+            memory
+         elif key == "MC":
+            memory = str(memory.remove(equation))
          else:
             equation = equation + key
          break
