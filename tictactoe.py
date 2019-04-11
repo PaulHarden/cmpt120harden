@@ -13,7 +13,7 @@ def printBoard(board):
     
 def markBoard(board, row, col, player):
     if board[row][col] == 0:
-        board[row][col] = player
+       board[row][col] = player
     else:
         print("Please pick an empty square!")
 
@@ -23,19 +23,12 @@ def getPlayerMove():
     return (row - 1, col - 1) 
 
 def hasBlanks(board):
-    # for each row in the board
     for i in range(3):
         for j in range(3):
             if board[i][j] == 0:
                 return True
-        if board[i][j] == 0:
-            return True
-        
-    # for each square in the row
-    # check whether the square is blank
-    # if so, return True
-    # if no square is blank, return False
-
+    return False
+            
 def main():
     board = [[0,0,0],
              [0,0,0],
@@ -46,5 +39,6 @@ def main():
         row, col = getPlayerMove()
         markBoard(board, row, col, player)
         player = player % 2 + 1
-
+    printBoard(board)
+    print("The board is full...")
 main()
