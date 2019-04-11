@@ -55,11 +55,10 @@ def createButtons(win):
       label.draw(win)
    return coords
 
-def onClick(coords, mouse, equation):
+def onClick(coords, mouse, equation, memory):
    for i in range(len(coords)):
       if coords [i][0] < mouse.x < coords[i][0] + 50 and coords[i][1] < mouse.y < coords[i][1] + 50:
          key = getLabel(i)
-         memory = 0
          if key == "DEL":
             equation = equation[:len(equation) - 1]
          elif key == "=":
@@ -67,26 +66,27 @@ def onClick(coords, mouse, equation):
          elif key in ['+','-','x','/']:
             equation = equation + ' ' + key + ' '
          elif key == "M+":
-            memory = str(equation)
+            memory = memory + doMath(equation.split())
          elif key == "M-":
-            memory = memory - ' ' - key - ' '
+            memory = memory - doMath(equation.split())
          elif key == "MR":
-            memory
+            equation = equation + str(memory)
          elif key == "MC":
-            memory = str(memory.remove(equation))
+            memory = 0
          else:
             equation = equation + key
          break
-   return equation
+   return equation, memory
          
 def main():
    win = createCanvas()
    display = createDisplay(win)
    coords = createButtons(win)
-   equation = ''   
+   equation = ''
+   memory = 0
    while True:
       mouse = win.getMouse()
-      equation = onClick(coords, mouse, equation)
+      equation, memory = onClick(coords, mouse, equation, memory)
       display.setText(equation)
       print(equation)
 
